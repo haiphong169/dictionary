@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Dictionary {
-    ArrayList<Word> dictionary = new ArrayList<>();
+    ArrayList<Word> dictionary = new ArrayList<Word>();
     Scanner sc = new Scanner(System.in);
 
     public void insertFromCommandline() {
