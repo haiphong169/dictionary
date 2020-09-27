@@ -1,10 +1,9 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Dictionary {
-    ArrayList<Word> dictionary = new ArrayList<Word>();
+    ArrayList<Word> dictionary = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     public void insertFromCommandline() {
@@ -49,10 +48,8 @@ public class Dictionary {
     public void dictionarySearcher() {
         System.out.println("Enter a word: ");
         String s = sc.nextLine();
-        for(Word word : dictionary)
-        {
-            if(word.getEng().substring(0,s.length()).equals(s))
-            {
+        for (Word word : dictionary) {
+            if (word.getEng().substring(0, s.length()).equals(s)) {
                 System.out.println(word.getEng());
             }
         }
@@ -80,5 +77,17 @@ public class Dictionary {
         }
     }
 
+    public void exportToFile() {
+        String eng = sc.nextLine();
+        String vn = sc.nextLine();
+        try {
+            FileWriter fileWriter = new FileWriter("C:\\Users\\lapto\\Desktop\\dictionary.txt",true);
+            fileWriter.write("\n" + eng + "\t" + vn);
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("Error!");
+            e.printStackTrace();
+        }
+    }
 
 }
